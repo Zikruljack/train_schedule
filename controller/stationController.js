@@ -1,17 +1,53 @@
 //import module
-
+const { stations } = require("../models");
 class StationController {
-  static listAllStation(req, res) {}
+  static async listAllStation(req, res) {
+    try {
+      const dataStation = await stations.findAll({
+        order: [["id", "desc"]],
+      });
+      // res.json(dataRoute);
+      res.render("/station.ejs", { results: dataStation });
+    } catch (e) {
+      res.json({ error: e.message });
+    }
+  }
 
-  static createPage(req, res) {}
+  static async addNewStation(req, res) {
+    try {
+      const { name, location } = req.body;
+      const results = await schedule.create({ name, location });
+      res.redirect("/station");
+    } catch (e) {
+      res.json({ error: e.message });
+    }
+  }
 
-  static addNewStation(req, res) {}
+  static async deleteStation(req, res) {
+    try {
+      const id = +req.params.id;
 
-  static deleteStation(req, res) {}
+      let result = await stations.destroy({
+        where: { id },
+      });
 
-  static updateStation(req, res) {}
+      // res.json(resultDriver);
+      res.redirect("/stations");
+    } catch (err) {
+      res.json(err);
+    }
+  }
 
-  static showStationSchedule(req, res) {}
+  static async updateStation(req, res) {
+    try {
+      const id = req.params.id;
+      const { name, location } = req.body;
+      const results = await stations.update(name, location, { where: { id } });
+      res.redirect("/stations");
+    } catch (e) {
+      res.json(e);
+    }
+  }
 }
 
 module.exports = StationController;
