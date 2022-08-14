@@ -5,8 +5,8 @@ const routesRoute = require("./routesRoute");
 const scheduleRoute = require("./scheduleRoute");
 
 routes.get("/", (req, res) => {
-  //   res.render("index.ejs");
-  res.json("Application Train Schedule ");
+  res.render("index.ejs");
+  // res.json("Application Train Schedule ");
 });
 
 routes.use("/trains", trainRoute);

@@ -4,11 +4,9 @@ const { route } = require("../models");
 class RouteController {
   static async listAllRoute(req, res) {
     try {
-      const dataRoute = await route.findAll({
-        order: [["id", "desc"]],
-      });
-      // res.json(dataRoute);
-      res.render("/routes.ejs", { results: dataRoute });
+      const dataRoute = await route.findAll();
+      res.json(dataRoute);
+      // res.render("/routes.ejs", { results: dataRoute });
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -16,9 +14,16 @@ class RouteController {
 
   static async addNewRoute(req, res) {
     try {
-      const { staton_id } = req.body;
-      const results = await routes.create({ staton_id });
-      res.redirect("/routes");
+      const { station_to, staion_from, scheduleArrive, scheduleDeparture } =
+        req.body;
+      const results = await route.create({
+        station_to,
+        staion_from,
+        scheduleArrive,
+        scheduleDeparture,
+      });
+      // res.redirect("/routes");
+      res.json(results);
     } catch (e) {
       res.json({ error: e.message });
     }

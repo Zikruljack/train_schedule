@@ -3,11 +3,9 @@ const { stations } = require("../models");
 class StationController {
   static async listAllStation(req, res) {
     try {
-      const dataStation = await stations.findAll({
-        order: [["id", "desc"]],
-      });
-      // res.json(dataRoute);
-      res.render("/station.ejs", { results: dataStation });
+      const dataStation = await stations.findAll();
+      // res.json(dataStation);
+      res.render("station.ejs", { results: dataStation }, { async: true });
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -15,9 +13,10 @@ class StationController {
 
   static async addNewStation(req, res) {
     try {
-      const { name, location } = req.body;
-      const results = await schedule.create({ name, location });
-      res.redirect("/station");
+      // const { name, location } = req.body;
+      const results = await stations.create(req.body);
+      // res.redirect("/station");
+      res.json(results);
     } catch (e) {
       res.json({ error: e.message });
     }

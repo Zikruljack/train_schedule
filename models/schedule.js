@@ -9,13 +9,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      schedule.belongsTo(models.route);
-      schedule.belongsTo(models.train);
+      schedule.belongsToMany(models.train, {
+        through: models.route,
+      });
     }
   }
   schedule.init(
     {
-      timeDate: DataTypes.DATE,
+      timeArrive: DataTypes.DATE,
+      timeDeparture: DataTypes.DATE,
+      trainId: DataTypes.INTEGER,
     },
     {
       sequelize,

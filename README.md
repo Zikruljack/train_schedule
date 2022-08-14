@@ -1,8 +1,14 @@
 # Train Schedule Docs
 
-    berikut ini merupakan dokumentasi tentang aplikasi ini
+berikut ini merupakan dokumentasi tentang aplikasi ini
 
 ---
+
+## Run App
+
+    npm install
+
+    npm run dev
 
 ## Task List
 
@@ -47,7 +53,7 @@ Here is the list of tasks :
 
 Before you using app, you must configure the database model schemes like this below:
 
-npx sequelize-cli model:generate --name train --attributes name:string,schedule_id:integer,route_id:integer &&
-npx sequelize-cli model:generate --name schedule --attributes timeDate:date &&
+npx sequelize-cli model:generate --name train --attributes name:string,class:string,stationId:integer &&
+npx sequelize-cli model:generate --name schedule --attributes timeArrive:date,timeDeparture:date &&
 npx sequelize-cli model:generate --name stations --attributes name:string,location:string &&
-npx sequelize-cli model:generate --name route --attributes station_to:integer,staion_from:integer,scheduleArrive:date,scheduleDeparture:date
+npx sequelize-cli model:generate --name route --attributes trainId:integer,scheduleId:integer && npm run db-install

@@ -9,23 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      route.hasOne(models.train);
-      route.hasOne(models.stations, {
-        foreignKey: "station_to",
-        foreignKey: "station_from",
-      });
-      route.hasOne(models.schedule, {
-        foreignKey: "scheduleArrive",
-        foreignKey: "scheduleDeparture",
-      });
+      route.belongsTo(models.train);
+      route.belongsTo(models.schedule);
     }
   }
   route.init(
     {
-      station_to: DataTypes.INTEGER,
-      staion_from: DataTypes.INTEGER,
-      scheduleArrive: DataTypes.DATE,
-      scheduleDeparture: DataTypes.DATE,
+      trainId: DataTypes.INTEGER,
+      scheduleId: DataTypes.INTEGER,
     },
     {
       sequelize,

@@ -3,11 +3,9 @@ const { schedule } = require("../models");
 class ScheduleController {
   static async listAllSchedule(req, res) {
     try {
-      const dataSchedule = await schedule.findAll({
-        order: [["id", "desc"]],
-      });
-      // res.json(dataRoute);
-      res.render("/schedule.ejs", { results: dataSchedule });
+      const dataSchedule = await schedule.findAll();
+      res.json(dataSchedule);
+      // res.render("schedule.ejs", { results: dataSchedule });
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -15,9 +13,10 @@ class ScheduleController {
 
   static async addNewSchedule(req, res) {
     try {
-      const { timeDate } = req.body;
-      const results = await schedule.create({ timeDate });
-      res.redirect("/schedule");
+      // const { timeDate } = req.body;
+      const results = await schedule.create(req.body);
+      // res.redirect("/schedule");
+      res.json(results);
     } catch (e) {
       res.json({ error: e.message });
     }

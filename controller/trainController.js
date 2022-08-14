@@ -12,22 +12,7 @@ class TrainController {
 
   static async addNewTrain(req, res) {
     try {
-      const {
-        name,
-        staion_id,
-        timeArriveTrain,
-        timeDepartureTrain,
-        stationFrom,
-        stationTo,
-      } = req.body;
-      const data = train.create(
-        name,
-        staion_id,
-        timeArriveTrain,
-        timeDepartureTrain,
-        stationFrom,
-        stationTo
-      );
+      const data = await train.create(req.body);
       res.json(data);
     } catch (e) {
       res.json(e);

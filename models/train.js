@@ -9,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      train.belongsTo(models.schedule, { foreignKey: "schedule_id" });
-      train.belongsTo(models.route, { foreignKey: "route_id" });
+      train.hasMany(models.stations, { foreignKey: "stationId" });
+      train.belongsToMany(models.schedule, { through: models.route });
     }
   }
   train.init(
     {
       name: DataTypes.STRING,
-      schedule_id: DataTypes.INTEGER,
-      route_id: DataTypes.INTEGER,
+      class: DataTypes.STRING,
+      stationId: DataTypes.INTEGER,
     },
     {
       sequelize,
