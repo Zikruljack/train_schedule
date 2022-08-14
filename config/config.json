@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "root",
-    "database": "train_schedule",
-    "host": "127.0.0.1",
+    "username": "npbwmwjuskuhnz",
+    "password": "6890778246cb1c33bca92c4bff4a19705201516e3cf7cc9dde0f1262638c65e4",
+    "database": "d58j1k1pqk82mj",
+    "host": "ec2-52-48-159-67.eu-west-1.compute.amazonaws.com",
     "dialect": "postgres"
   },
   "test": {
