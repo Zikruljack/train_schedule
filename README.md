@@ -4,15 +4,6 @@ berikut ini merupakan dokumentasi tentang aplikasi ini
 
 ---
 
-## Task List
-
-Here is the list of tasks :
-
-- [x] Create Controller for Train, schedule, stations and route
-- [x] Create model for Train, schedule, stations and route
-- [x] Create View using Bootstrap and Ejs
-- [x] edit View
-
 ## Run App
 
     npm install

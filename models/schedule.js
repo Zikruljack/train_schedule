@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      schedule.belongsToMany(models.train, {
+      schedule.belongsToMany(models.trains, {
         through: models.route,
       });
     }

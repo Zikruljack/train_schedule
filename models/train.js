@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       train.hasMany(models.stations, { foreignKey: "stationId" });
-      train.belongsToMany(models.schedule, { through: models.route });
+      train.belongsToMany(models.schedules, { through: models.route });
     }
   }
   train.init(
