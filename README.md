@@ -26,28 +26,21 @@ Here is the list of tasks :
 | GET    | /trains              | Menampilkan semua kereta yang ada didalam database       |
 | GET    | /schedule            | Menampilkan semua schedule yang ada didalam database     |
 | GET    | /stations            | Menampilkan semua stations yang ada didalam database     |
-| GET    | /routes              | Menampilkan semua route yang ada didalam database        |
 | POST   | /trains/create       | Menambahkan data train kedalam database                  |
 | POST   | /stations/create     | Menambahkan data station kedalam database                |
 | POST   | /trains/create       | Menambahkan data schedule kedalam database               |
-| POST   | /route/create        | Menambahkan data route kedalam database                  |
 | GET    | /trains/create       | Menampilkan data kereta yang baru ditambahkan database   |
 | GET    | /schedule/create     | Menampilkan data schedule yang baru ditambahkan database |
 | GET    | /stations/create     | Menampilkan data station yang baru ditambahkan database  |
-| GET    | /route/create        | Menampilkan data route yang baru ditambahkan database    |
 | GET    | /trains/delete/:id   | Delete data trains sesuai dengan ID yang ditentukan      |
 | GET    | /schedule/delete/:id | Delete data schedule sesuai dengan ID yang ditentukan    |
 | GET    | /stations/delete/:id | Delete data station sesuai dengan ID yang ditentukan     |
-| GET    | /routes/delete/:id   | Delete data routes sesuai dengan ID yang ditentukan      |
 | POST   | /trains/update/:id   | Update data trains sesuai dengan ID yang ditentukan      |
 | POST   | /schedule/update/:id | Update data schedules sesuai dengan ID yang ditentukan   |
 | POST   | /stations/update/:id | Update data schedules sesuai dengan ID yang ditentukan   |
-| POST   | /routes/update/:id   | Update data routes sesuai dengan ID yang ditentukan      |
 | GET    | /trains/update/:id   | Menampilkan data kereta yang baru di Update              |
 | GET    | /schedule/update/:id | Menampilkan data schedule yang baru di Update            |
 | GET    | /stations/update/:id | Menampilkan data station yang baru di Update             |
-| GET    | /routes/update/:id   | Menampilkan data routes yang baru di Update              |
-| GET    | /trains/schedule/:id | Menampilkan semua jadwal kereta                          |
 
 ## app model schemas
 
