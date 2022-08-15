@@ -25,13 +25,13 @@
                     <div class="collapse navbar-collapse">
                         <ul class="navbar-nav ms-auto ">
                             <li class="nav-item">
+                                <a class="nav-link active" href="/schedule">Schedules</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link " href="/stations">Stations</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/trains">Trains</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="/schedule">Schedules</a>
                             </li>
                         </ul>
                     </div>
@@ -60,26 +60,23 @@
                 </tr>
             </thead>
             <tbody>
-                <% results.forEach(Schedules=> { %>
+                <% results.forEach(schedules=> { %>
                     <tr>
                         <th scope="row">
-                            <%= schedule.id %>
+                            <%= schedules.id %>
                         </th>
                         <td>
-                            <%= schedule.timeArrive %>
+                            <%= schedules.timeArrive %>
                         </td>
                         <td>
-                            <%= schedule.timeDepart %>
+                            <%= schedules.timeDepart %>
                         </td>
-                        <td class="text-capitalize">
-                            <%= schedule.train.name %>
-                        </td>
+                        <td></td>
+
                         <td>
-                            <button><a href="/schedule/update/<%= schedule.id %>" class="badge text-bg-danger
-                                text-decoration-none">Edit</a>
+                            <button><a href="/schedule/update/<%= schedules.id %>" class="text-bg-success">Edit</a>
                             </button>
-                            <button><a href="/schedule/delete/<%= schedule.id %>" class="badge text-bg-danger
-                              text-decoration-none">Hapus</a>
+                            <button><a href="/schedule/delete/<%= schedules.id %>" class="text-bg-danger">Hapus</a>
                             </button>
                         </td>
                     </tr>

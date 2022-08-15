@@ -4,19 +4,30 @@ berikut ini merupakan dokumentasi tentang aplikasi ini
 
 ---
 
-## Run App
-
-    npm install
-
-    npm run dev
-
 ## Task List
 
 Here is the list of tasks :
 
 - [x] Create Controller for Train, schedule, stations and route
 - [x] Create model for Train, schedule, stations and route
-- [ ] Create View using Bootstrap and Ejs
+- [x] Create View using Bootstrap and Ejs
+- [x] edit View
+
+## Run App
+
+    npm install
+
+    npm run dev
+
+## app model schemas
+
+Before you using app, you must configure the database model schemes like this below:
+
+    npx sequelize-cli model:generate --name train --attributes name:string,class:string,stationId:integer &&
+    npx sequelize-cli model:generate --name schedule --attributes timeArrive:date,timeDeparture:date &&
+    npx sequelize-cli model:generate --name stations --attributes name:string,location:string &&
+    npx sequelize-cli model:generate --name route --attributes trainId:integer,scheduleId:integer &&
+    npm run db-install
 
 ## app URL routing
 
@@ -41,12 +52,3 @@ Here is the list of tasks :
 | GET    | /trains/update/:id   | Menampilkan data kereta yang baru di Update              |
 | GET    | /schedule/update/:id | Menampilkan data schedule yang baru di Update            |
 | GET    | /stations/update/:id | Menampilkan data station yang baru di Update             |
-
-## app model schemas
-
-Before you using app, you must configure the database model schemes like this below:
-
-npx sequelize-cli model:generate --name train --attributes name:string,class:string,stationId:integer &&
-npx sequelize-cli model:generate --name schedule --attributes timeArrive:date,timeDeparture:date &&
-npx sequelize-cli model:generate --name stations --attributes name:string,location:string &&
-npx sequelize-cli model:generate --name route --attributes trainId:integer,scheduleId:integer && npm run db-install

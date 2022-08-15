@@ -14,6 +14,24 @@ class StationController {
       res.json({ error: e.message });
     }
   }
+  static async addStationPage(req, res) {
+    try {
+      const dataStation = await stations.findAll();
+      // res.json(dataStation);
+      res.render("addView/station.ejs", { results: dataStation });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+  static async updateStationPage(req, res) {
+    try {
+      const dataStation = await stations.findAll();
+      // res.json(dataStation);
+      res.render("editView/station.ejs", { results: dataStation });
+    } catch (err) {
+      res.json(err);
+    }
+  }
 
   static async addNewStation(req, res) {
     try {

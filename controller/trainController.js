@@ -11,6 +11,25 @@ class TrainController {
     }
   }
 
+  static async addTrainPage(req, res) {
+    try {
+      const dataTrain = await train.findAll();
+      // res.json(dataTrain);
+      res.render("addView/train.ejs", { results: dataTrain });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+  static async updateTrainPage(req, res) {
+    try {
+      const dataTrain = await train.findAll();
+      // res.json(dataTrain);
+      res.render("editView/train.ejs", { results: dataTrain });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
   static async addNewTrain(req, res) {
     try {
       const data = await train.create(req.body);

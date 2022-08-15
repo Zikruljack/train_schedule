@@ -11,12 +11,41 @@ class ScheduleController {
     }
   }
 
+  static async addSchedulePage(req, res) {
+    try {
+      const dataSchedule = await schedule.findAll();
+      // res.json(dataSchedule);
+      res.render("addView/schedule.ejs", { results: dataSchedule });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
+  static async updateSchedulePage(req, res) {
+    try {
+      const dataSchedule = await schedule.findAll();
+      // res.json(dataSchedule);
+      res.render("editView/schedule.ejs", { results: dataSchedule });
+    } catch (err) {
+      res.json(err);
+    }
+  }
+
   static async addNewSchedule(req, res) {
     try {
       // const { timeDate } = req.body;
       const results = await schedule.create(req.body);
       res.redirect("/schedule");
       // res.json(results);
+    } catch (e) {
+      res.json({ error: e.message });
+    }
+  }
+  static async listAllSchedule(req, res) {
+    try {
+      const dataSchedule = await schedule.findAll();
+      // res.json(dataSchedule);
+      res.render("mainView/schedule.ejs", { results: dataSchedule });
     } catch (e) {
       res.json({ error: e.message });
     }
