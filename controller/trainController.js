@@ -4,7 +4,8 @@ class TrainController {
   static async listAllTrain(req, res) {
     try {
       const dataTrain = await train.findAll();
-      res.json(dataTrain);
+      // res.json(dataTrain);
+      res.render("mainView/train.ejs", { results: dataTrain });
     } catch (err) {
       res.json(err);
     }
@@ -13,7 +14,8 @@ class TrainController {
   static async addNewTrain(req, res) {
     try {
       const data = await train.create(req.body);
-      res.json(data);
+      // res.json(data);
+      res.redirect("/trains");
     } catch (e) {
       res.json(e);
     }

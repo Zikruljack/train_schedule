@@ -4,8 +4,8 @@ class ScheduleController {
   static async listAllSchedule(req, res) {
     try {
       const dataSchedule = await schedule.findAll();
-      res.json(dataSchedule);
-      // res.render("schedule.ejs", { results: dataSchedule });
+      // res.json(dataSchedule);
+      res.render("mainView/schedule.ejs", { results: dataSchedule });
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -15,8 +15,8 @@ class ScheduleController {
     try {
       // const { timeDate } = req.body;
       const results = await schedule.create(req.body);
-      // res.redirect("/schedule");
-      res.json(results);
+      res.redirect("/schedule");
+      // res.json(results);
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -29,8 +29,6 @@ class ScheduleController {
       let result = await schedule.destroy({
         where: { id },
       });
-
-      // res.json(resultDriver);
       res.redirect("/schedule");
     } catch (err) {
       res.json(err);
@@ -41,8 +39,8 @@ class ScheduleController {
     try {
       const id = req.params.id;
       const { timeDate } = req.body;
-      const results = await routes.update(timeDate, { where: { id } });
-      res.redirect("/routes");
+      const results = await schedule.update(timeDate, { where: { id } });
+      res.redirect("/schedule");
     } catch (e) {
       res.json(e);
     }

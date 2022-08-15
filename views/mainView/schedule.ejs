@@ -45,18 +45,45 @@
                 </p>
             </div>
         </div>
+        <div>
+            <a href="/schedule/create" class="btn btn-success"> Tambah Data</a>
+        </div>
 
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Train</th>
                     <th scope="col">Arrival</th>
                     <th scope="col">Departure</th>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-
+                <% results.forEach(Schedules=> { %>
+                    <tr>
+                        <th scope="row">
+                            <%= schedule.id %>
+                        </th>
+                        <td>
+                            <%= schedule.timeArrive %>
+                        </td>
+                        <td>
+                            <%= schedule.timeDepart %>
+                        </td>
+                        <td class="text-capitalize">
+                            <%= schedule.train.name %>
+                        </td>
+                        <td>
+                            <button><a href="/schedule/update/<%= schedule.id %>" class="badge text-bg-danger
+                                text-decoration-none">Edit</a>
+                            </button>
+                            <button><a href="/schedule/delete/<%= schedule.id %>" class="badge text-bg-danger
+                              text-decoration-none">Hapus</a>
+                            </button>
+                        </td>
+                    </tr>
+                    <% }) %>
             </tbody>
         </table>
 

@@ -38,27 +38,31 @@
                 </div>
             </nav>
         </div>
-        <div class="row">
-            <div class="col-12 my-5 text-center">
-                <p>
-                    Berikut Jadwal Keberangkatan Kereta Api
-                </p>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-3">
+                <form class="row g-3" action="/stations/create" method="POST">
+                    <div class="row mb-3">
+                        <label for="">Tambah data station</label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-2 col-form-label">Name</label>
+                        <div class="col-6">
+                            <input type="text" name="name" class="form-control" required />
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-2 col-form-label">location</label>
+                        <div class="col-6">
+                            <input type="text" name="location" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-12 float-right">
+                        <button class="btn btn-primary" type="submit">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Train</th>
-                    <th scope="col">Arrival</th>
-                    <th scope="col">Departure</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
 
     </div>
 

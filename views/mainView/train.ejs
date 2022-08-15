@@ -41,9 +41,12 @@
         <div class="row">
             <div class="col-12 my-5 text-center">
                 <p>
-                    Berikut Jadwal Keberangkatan Kereta Api
+                    Berikut Daftar Kereta Api
                 </p>
             </div>
+        </div>
+        <div>
+            <a href="/trains/create" class="btn btn-success"> Tambah Data</a>
         </div>
 
         <table class="table">
@@ -51,12 +54,40 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Train</th>
+                    <th scope="col">Class</th>
                     <th scope="col">Arrival</th>
                     <th scope="col">Departure</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-
+                <% results.forEach(trains=> { %>
+                    <tr>
+                        <th scope="row">
+                            <%= trains.id %>
+                        </th>
+                        <td class="text-capitalize">
+                            <%= trains.name %>
+                        </td>
+                        <td>
+                            <%= trains.class %>
+                        </td>
+                        <td>
+                            <%= trains.schedule.timeArrive %>
+                        </td>
+                        <td>
+                            <%= trains.schedule.timeDepart %>
+                        </td>
+                        <td>
+                            <button><a href="/trains/update/<%= trains.id %>" class="badge text-bg-danger
+                                text-decoration-none">Edit</a>
+                            </button>
+                            <button><a href="/trains/delete/<%= trains.id %>" class="badge text-bg-danger
+                              text-decoration-none">Hapus</a>
+                            </button>
+                        </td>
+                    </tr>
+                    <% }) %>
             </tbody>
         </table>
 

@@ -5,7 +5,11 @@ class StationController {
     try {
       const dataStation = await stations.findAll();
       // res.json(dataStation);
-      res.render("station.ejs", { results: dataStation }, { async: true });
+      res.render(
+        "mainView/station.ejs",
+        { results: dataStation },
+        { async: true }
+      );
     } catch (e) {
       res.json({ error: e.message });
     }
@@ -15,8 +19,8 @@ class StationController {
     try {
       // const { name, location } = req.body;
       const results = await stations.create(req.body);
-      // res.redirect("/station");
-      res.json(results);
+      res.redirect("/station");
+      // res.json(results);
     } catch (e) {
       res.json({ error: e.message });
     }
